@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"input-row .",[1],"title { font-size: ",[0,30],"; width: 23%; }\n.",[1],"m-input-input { font-size: ",[0,30],"; }\n",],undefined,{path:"./pages/reg/reg.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/reg/reg.wxml') } }));

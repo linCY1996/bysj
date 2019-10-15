@@ -1,0 +1,9 @@
+
+.input-row .title {
+	font-size: 30rpx;
+	width: 23%;
+}
+.m-input-input {
+	font-size: 30rpx;
+}
+

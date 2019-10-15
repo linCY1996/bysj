@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "精品课程",
+  "usingComponents": {
+    "uni-swiper-dot": "/components/uni-swiper-dot/uni-swiper-dot",
+    "waterfall-flow": "/components/nairenk-waterfall-flow/nairenk-waterfall-flow"
+  }
+}

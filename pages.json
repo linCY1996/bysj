@@ -1,0 +1,149 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页,
+		{
+			"path": "pages/main/main",
+			"style": {
+				"navigationBarTitleText": "精品课程"
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/reg/reg",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		}, {
+			"path": "pages/pwd/pwd",
+			"style": {
+				"navigationBarTitleText": "找回密码"
+			}
+		}, {
+			"path": "pages/fumou-center-template/fumou-center-template",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "精品课程"
+			}
+		}, {
+			"path": "pages/navbar-2/navbar-2",
+			"style": {
+				"navigationBarTitleText": "商品分类",
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"backgroundColorTop": "#fcfcfc",
+				"backgroundColorBottom": "#fcfcfc",
+				"disableScroll": true,
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/productDetail/productDetail",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"navigationBarTextStyle": "black",
+				"backgroundColorTop": "#F7F7F7",
+				"backgroundColorBottom": "#F7F7F7",
+				"navigationBarTitleText": "商品详情 ",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/uni-comment/uni-comment",
+			"style": {
+				"navigationBarTitleText": "评论页面"
+			}
+		}
+		
+	    ,{
+            "path" : "pages/Cart/Cart",
+            "style" : {"navigationBarTitleText": "购物车"}
+        },
+		{
+		    "path" : "pages/chb-address/address-list/address-list",
+		    "style" : {"navigationBarTitleText": "我的地址"}
+		},
+		{
+		    "path" : "pages/chb-address/address-list/Editaddress",
+		    "style" : {"navigationBarTitleText": "地址编辑"}
+		}
+        ,{
+            "path" : "pages/fumou-center-template/waitingGods",
+            "style" : {
+				"navigationBarTitleText": "订单状态"
+			}
+        },
+		{
+		    "path" : "pages/fumou-center-template/uni-feedback",
+		    "style" : {
+				"navigationBarTitleText": "意见反馈"
+			}
+		},
+		{
+		    "path" : "pages/news-search/news-search",
+		    "style" : {
+				"navigationBarTitleText": "精品搜索"
+			}
+		},
+		{
+		    "path" : "pages/fumou-center-template/saveGoods",
+		    "style" : {
+				"navigationBarTitleText": "个人收藏"
+			}
+		},
+		{
+		    "path" : "pages/fumou-center-template/aboutMine",
+		    "style" : {
+				"navigationBarTitleText": "关于我们"
+			}
+		},
+		{
+		    "path" : "pages/index/jingpingClass",
+		    "style" : {
+				"navigationBarTitleText": "精品课程"
+			}
+		}
+    ],
+	"tabBar": {
+		"color": "#7a7e83",
+		"selectedColor": "#0faeff",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "static/img/home.png",
+			"selectedIconPath": "static/img/homeHL.png"
+		}, {
+			"pagePath": "pages/navbar-2/navbar-2",
+			"text": "分类",
+			"iconPath": "static/img/user.png",
+			"selectedIconPath": "static/img/userHL.png"
+		}, {
+			"pagePath": "pages/Cart/Cart",
+			"text": "购物车",
+			"iconPath": "static/img/home.png",
+			"selectedIconPath": "static/img/homeHL.png"
+		}, {
+			"pagePath": "pages/fumou-center-template/fumou-center-template",
+			"text": "我的",
+			"iconPath": "static/img/user.png",
+			"selectedIconPath": "static/img/userHL.png"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#0faeff",
+		"backgroundColor": "#fbf9fe"
+	}
+}

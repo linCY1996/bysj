@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "精品课程",
+  "usingComponents": {
+    "shop-car-animation": "/components/fly-in-cart/fly-in-cart"
+  }
+}
