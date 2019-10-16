@@ -15,6 +15,11 @@ var httpRequest = {
 				},
 				fail:function(err){
 					reject(err)
+					uni.showToast({
+						title: '服务器连接异常',
+						icon:'none',
+						duration:3000
+					});
 				}
 			})
 		});
@@ -30,10 +35,14 @@ var httpRequest = {
 				success: function(res) {
 					//返回结果自行处理
 					resolve(res);
-
 				},
 				fail:function(err){
 					reject(err)
+					uni.showToast({
+						title: '服务器连接异常',
+						icon:'none',
+						duration:3000
+					});
 				}	
 			})
 		});

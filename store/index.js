@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         hasLogin: false,
-        userMsgs:{}
+        userMsgs:{},	
+		editaddress:{},
     },
     mutations: {
         haslogin(state, status) {
@@ -14,6 +15,9 @@ const store = new Vuex.Store({
         },
         saveUserMsgs(state, msgs) {
 			state.userMsgs = msgs
+		},
+		editAddress(state, address) {
+			state.editaddress = address
 		}
     }
 })

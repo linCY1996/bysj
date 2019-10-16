@@ -92,10 +92,15 @@
                     });
                     return;
                 }
+				uni.showLoading({
+					title: '登录中',
+					mask: true
+				});
 				this.$http.login({
 					number:this.account,
 					pass:this.password
 				}).then(res => {
+					uni.hideLoading()
 					console.log("login", res);
 					if (res.data == 0) {
 						uni.showToast({

@@ -2,7 +2,7 @@
 	<view class="content" :style="{height:height+'px'}">
 		<view class="btn" @tap="toggleTab">
 			<text>选择地区：</text>
-			<text>{{resultInfo.result}}</text>
+			<text>{{address}}</text>
 		</view>
 		<w-picker
 			mode="region"
@@ -10,24 +10,28 @@
 			@confirm="onConfirm" 
 			ref="region" 
 		></w-picker>
-		<textarea value="" placeholder="添加详细地址" class="detail" />
-		<view class="Btns">确定</view>
+		<textarea value="" v-model="detailAddress" placeholder="添加详细地址" class="detail" />
+		<view class="Btns" @tap="SendAddress">确定</view>
 	</view>
 </template>
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {mapState} from "vuex"
 	export default {
 		components:{
 			wPicker
 		},
+		computed:{
+			...mapState([
+				'editaddress'
+			])
+		},
 		data() {
 			return{
-				tabIndex:0,
-				resultInfo:{
-					result:"请选择地区"
-				},
-				height:''
+				height:'',
+				address:'', //省市区地址
+				detailAddress:'',   //详细地址
 			}
 		},
 		methods:{
@@ -35,17 +39,22 @@
 				this.$refs["region"].show();
 			},
 			onConfirm(val){
-				console.log(val);
-				//如果页面需要调用多个mode类型，可以根据mode处理结果渲染到哪里;
-				// switch(this.mode){
-				// 	case "date":
-				// 		break;
-				// }
-				this.resultInfo=val;
+				console.log("==", val.result);
+				this.address=val.result;
 			}
+		},
+		// 提交地址
+		SendAddress() {
+			// this.$http.sendAddress({
+			// 	
+			// }).then(res =>{
+			// 	
+			// })
 		},
 		onLoad() {
 			this.height = uni.getSystemInfoSync().windowHeight
+			this.address = this.editaddress.address
+			this.detailAddress = this.editaddress.detailaddress
 		}
 	}
 </script>

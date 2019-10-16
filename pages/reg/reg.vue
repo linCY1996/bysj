@@ -74,6 +74,10 @@
 					});
 					return;
 				}
+				uni.showLoading({
+					title: '注册中',
+					mask: true
+				});
 				this.$http.register({
 						username:this.account,
 						pass: this.password,
@@ -81,6 +85,7 @@
 						tel: this.phone
 				}).then(res => {
 					console.log(res);
+					uni.hideLoading()
 					if(res.data == '添加成功') {
 						uni.showToast({
 							title: '注册成功',

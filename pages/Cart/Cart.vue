@@ -1,13 +1,13 @@
 <template>
 	<view class="shoppingcar" :style="minHeight">
 		<view class="dianpu" v-for="(item,index) in shopData" :key="index">
-			<view class="dianpu-name" v-if="item.store_name">
+			<!-- <view class="dianpu-name" v-if="item.store_name">
 				<checkBox :isselected="item.checked" @change="shopActive(item)"></checkBox>
 				<view class="iconfont" style="width: 50upx;height: 50upx; margin-top: -14upx;">
 					<image src="../../static/img/hudong.png" mode="scaleToFill" style="vertical-align: middle;width: 50rpx;height: 50rpx;"></image>
 				</view>
 				<view class="text">{{ item.store_name }}</view>
-			</view>
+			</view> -->
 			<scroll-view scroll-x="true" class="scrollView" 
 			v-for="(ite,ind) in item.data"
 			:key="ind"
@@ -25,14 +25,10 @@
 							</view>
 							<view class="text-info">
 								<view class="title-text" @tap="toProDetail(ite.goods_id,ite.store_id)">
-									<!-- <text class="biaoqian">特价</text> -->
 									<text class="name">{{ ite.goods_name }}</text>
-									<!-- <text class="bieming">{{ ite.goods_name }} </text> -->
-									<!-- <text class="youhui">已降{{ ite.reduce_price }}</text> -->
 								</view>
 								<view class="jiage" @tap="toProDetail(ite.goods_id,ite.store_id)">
 									<text class="danjia">￥{{ ite.goods_price }}</text>
-									<!-- <text class="shuliang">x {{ ite.goods_num }}</text> -->
 								</view>
 								<view class="numInput">
 									<text class="reduce iconfont" @tap="changeCount(ite,-1,ite.cart_id)" :class="ite.goods_num == 0 ? 'numbox-disabled' : ''">-</text>
@@ -77,11 +73,6 @@ export default {
 			allCount: 0, //被选中的产品数量
 			shopData:[
 					{
-						'store_name':'香奈儿专营店',
-						'checked':false,
-						'yunfei':10,
-						'price':300,
-						checkedCount:0,
 						'data':[
 							{
 								cart_id:1,
@@ -110,11 +101,6 @@ export default {
 						],
 					},
 					{
-						'store_name':'香奈儿专营店',
-						'checked':false,
-						'yunfei':12,
-						'price':500,
-						checkedCount:0,
 						'data':[
 							{
 								cart_id:3,
@@ -198,7 +184,6 @@ export default {
 		
 		// 点击选中与取消===店铺,(选中店铺的所有商品)
 		shopActive(item) {
-			console.log('shopActive',item);
 			!item.checked ? this._shopTrue(item) : this._shopFalse(item);
 		},
 		_shopTrue(item) {
@@ -208,7 +193,6 @@ export default {
 			})
 		},
 		_shopFalse(item) {
-			
 			item.data.forEach((pro,index) => {
 				pro.isChecked === true ? this._checkFalse(item,pro) : ''
 			})
@@ -245,9 +229,7 @@ export default {
 		// 全选
 		allCheck() {
 			this.isCheckAll = !this.isCheckAll;
-			this.isCheckAll ? 
-			this.shopData.forEach((item) => {this._shopTrue(item)}) : 
-			this.shopData.forEach((item) => {this._shopFalse(item)})
+			this.isCheckAll ? this.shopData.forEach((item) => {this._shopTrue(item)}) : this.shopData.forEach((item) => {this._shopFalse(item)})
 		},
 		changeCount(val,way,id) {
 			let vm = this;
@@ -258,7 +240,6 @@ export default {
 					val.goods_num--;
 				}
 			}
-			console.log('商品数量',val.goods_num);
 			// 更新购物车数量
 			this.editCount(id,val.goods_num)
 		},

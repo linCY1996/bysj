@@ -15,7 +15,7 @@
 										<div class="aui-well-item-bd">
 											<h3>{{menuList2.dname}}</h3>
 										</div>
-										<span class="aui-well-item-fr">{{menuList2.zt}}</span>
+										<!-- <span class="aui-well-item-fr">{{menuList2.zt}}</span> -->
 									</a>
 									<div class="aui-mail-product">
 										<a href="javascript:;" class="aui-mail-product-item">

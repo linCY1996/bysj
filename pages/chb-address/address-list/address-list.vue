@@ -7,10 +7,10 @@
 						{{item.linkMan}} {{item.mobile}}
 					</view>
 					<view class="address-box">
-						{{item.address}}
+						{{item.address}}+{{item.detailaddress}}
 					</view>
 				</view>
-				<view class="right-edit" @tap="editAddess(item.id)"></view>
+				<view class="right-edit" @tap="editAddess(item)"></view>
 			</view>
 		</view>
 		<view class="bottom-box">
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+	import {mapMutations} from "vuex"
 	export default {
 		data() {
 			return {
@@ -28,43 +29,64 @@
 						id: 1,
 						linkMan: '小明',
 						mobile: '10086',
-						address: '北京市西城区动物园',
+						address: '北京市市辖区西城区	',
+						detailaddress:'河东路',
 						isDefault:true
 					},
 					{
 						id: 2,
 						linkMan: '小红',
 						mobile: '10010',
-						address: '北京市海淀区植物园',
+						address: '天津市市辖区和平区',
+						detailaddress:'春熙路南延线西广场东南方向二里地',
+						isDefault:false
 					},
 					{
 						id: 3,
 						linkMan: '小刚',
 						mobile: '10001',
-						address: '广东省广州长隆动物园'
-					
+						address: '天津市市辖区河东区',
+						detailaddress:'春熙路南延线西广场东南方向二里地',
+						isDefault:false
 					}
 				]
 			}
 		},
 		onLoad() {
-			
+			// 获取地址列表
+			// this.$http.getAddressList({}).then(res => {
+			// 	this.addressList = res.data
+			// })
 		},
 		methods: {
+			...mapMutations([
+				'editAddress'
+			]),
+			// 选择地址
 			selectTap(id) {
+				var that = this
 				console.log("tap item id:" + JSON.stringify(id));
+				that.addressList.forEach(function(item) {
+					if(item.id == id) {
+						item.isDefault = true
+					}else {
+						item.isDefault = false
+					}
+				})
 			},
-			editAddess(id) {
+			// 编辑地址
+			editAddess(item) {
+				// console.log(item);
 				uni.navigateTo({
 					url: 'Editaddress',
 				});
-				console.log("edit item id:" + id);
+				this.editAddress(item)
 			},
 			addAddess() {
 				uni.navigateTo({
 					url: 'Editaddress',
 				});
-				console.log("tap add new Address");
+				// console.log("tap add new Address");
 			}
 		}
 	}

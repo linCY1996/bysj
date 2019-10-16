@@ -48,12 +48,16 @@
                     });
                     return;
                 }
+				uni.showLoading({
+					title: '提交中',
+					mask: true
+				});
 				this.$http.lostpass({
 					email:this.email,
 					pass:this.pass,
 					passagain:this.passagain
 				}).then(res => {
-					console.log("res", res);
+					uni.hideLoading()
 					uni.showToast({
 					    icon: 'none',
 					    title: res.data,
